@@ -354,10 +354,10 @@ jobs:
           mv packages/*.deb ${{ github.workspace }}/demc.deb
 
       - name: Clone and Build iSponsorBlock
-         if: inputs.isponsorblock == true && steps.cache_tweaks.outputs.cache_isponsorblock_hit != 'true'
-          run: |
+        if: inputs.isponsorblock == true && steps.cache_tweaks.outputs.cache_isponsorblock_hit != 'true'
+        run: |
            git clone --quiet --depth=1 https://github.com/Galactic-Dev/iSponsorBlock.git
-            cd iSponsorBlock && make clean package DEBUG=0 FINALPACKAGE=1 ROOTLESS=1 ARCHS=arm64 TARGET=iphone:clang:16.5:13.0
+           cd iSponsorBlock && make clean package DEBUG=0 FINALPACKAGE=1 ROOTLESS=1 ARCHS=arm64 TARGET=iphone:clang:16.5:13.0
            mv packages/*.deb ${{ github.workspace }}/isponsorblock.deb
       
       

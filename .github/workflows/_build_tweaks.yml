@@ -293,11 +293,11 @@ jobs:
           mv packages/*.deb ${{ github.workspace }}/youloop.deb
 
       - name: Clone and Build Alderis
-  if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_alderis_hit != 'true'
-  run: |
-    git clone --quiet --depth=1 https://github.com/hbang/Alderis.git
-    cd Alderis && make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless ARCHS=arm64
-    mv packages/*.deb ${{ github.workspace }}/alderis.deb
+        if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_alderis_hit != 'true'
+        run: |
+         git clone --quiet --depth=1 https://github.com/hbang/Alderis.git
+         cd Alderis && make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless ARCHS=arm64
+         mv packages/*.deb ${{ github.workspace }}/alderis.deb
 
       - name: Clone and Build YouSlider
         if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_youslider_hit != 'true'

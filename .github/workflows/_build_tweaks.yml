@@ -293,9 +293,9 @@ jobs:
           mv packages/*.deb ${{ github.workspace }}/youloop.deb
 
       - name: Download Alderis (prebuilt)
-  if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_alderis_hit != 'true'
-  run: |
-    curl -L -o ${{ github.workspace }}/alderis.deb "https://github.com/hbang/Alderis/releases/download/1.2.3/ws.hbang.alderis_1.2.3_iphoneos-arm64.deb"
+        if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_alderis_hit != 'true'
+        run: |
+          curl -L -o ${{ github.workspace }}/alderis.deb "https://github.com/hbang/Alderis/releases/download/1.2.3/ws.hbang.alderis_1.2.3_iphoneos-arm64.deb"
 
       - name: Clone and Build YouSlider
         if: inputs.youslider == true && steps.cache_tweaks.outputs.cache_youslider_hit != 'true'

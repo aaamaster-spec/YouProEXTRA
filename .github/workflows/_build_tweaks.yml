@@ -360,7 +360,7 @@ jobs:
            cd iSponsorBlock && make clean package DEBUG=0 FINALPACKAGE=1 ROOTLESS=1 ARCHS=arm64 TARGET=iphone:clang:16.5:13.0
            mv packages/*.deb ${{ github.workspace }}/isponsorblock.deb
             
-     - name: Clone and Build YTHoldForSpeed
+      - name: Clone and Build YTHoldForSpeed
         if: inputs.ythold == true && steps.cache_tweaks.outputs.cache_ythold_hit != 'true'
         run: |
           git clone --quiet --depth=1 https://github.com/joshuaseltzer/YTHoldForSpeed.git
